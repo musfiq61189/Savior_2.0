@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Stations & Officers</title>
+    <!-- Tailwind CSS CDN Link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Main container -->
+    <div class="container mx-auto p-6">
+
+        <h1 class="text-3xl font-bold text-center mb-6">Police Stations & Officers Information</h1>
+
+        <!-- Table -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+            <table class="min-w-full table-auto">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <th class="px-4 py-2 text-left">Station Name</th>
+                        <th class="px-4 py-2 text-left">Location</th>
+                        <th class="px-4 py-2 text-left">Officer Name</th>
+                        <th class="px-4 py-2 text-left">Designation</th>
+                        <th class="px-4 py-2 text-left">Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Row 1 -->
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-2">Central Police Station</td>
+                        <td class="px-4 py-2">Main Street, Downtown</td>
+                        <td class="px-4 py-2">Officer John Doe</td>
+                        <td class="px-4 py-2">Sergeant</td>
+                        <td class="px-4 py-2">
+                            <a href="tel:+1234567890" class="text-blue-600 hover:underline">+123-456-7890</a>
+                        </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-2">Eastside Police Station</td>
+                        <td class="px-4 py-2">East Avenue, Block B</td>
+                        <td class="px-4 py-2">Officer Jane Smith</td>
+                        <td class="px-4 py-2">Lieutenant</td>
+                        <td class="px-4 py-2">
+                            <a href="tel:+0987654321" class="text-blue-600 hover:underline">+098-765-4321</a>
+                        </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-2">Northwest Police Station</td>
+                        <td class="px-4 py-2">North Road, Block D</td>
+                        <td class="px-4 py-2">Officer Robert Brown</td>
+                        <td class="px-4 py-2">Captain</td>
+                        <td class="px-4 py-2">
+                            <a href="tel:+1122334455" class="text-blue-600 hover:underline">+112-233-4455</a>
+                        </td>
+                    </tr>
+
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

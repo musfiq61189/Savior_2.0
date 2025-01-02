@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex">
+  <!-- Sidebar -->
+  <aside class="bg-white w-64 border-r hidden md:block">
+    <div class="p-6">
+      <h1 class="text-lg font-semibold mb-6">Admin Dashboard</h1>
+      <nav>
+        <ul class="space-y-4">
+          <li>
+            <button 
+              class="w-full text-left flex items-center p-2 rounded-md hover:bg-gray-100 bg-blue-100"
+              onclick="switchSection('hospital')">
+              🏥 Hospital
+            </button>
+          </li>
+          <li>
+            <button 
+              class="w-full text-left flex items-center p-2 rounded-md hover:bg-gray-100"
+              onclick="switchSection('fireService')">
+              🚒 Fire Service
+            </button>
+          </li>
+          <li>
+            <button 
+              class="w-full text-left flex items-center p-2 rounded-md hover:bg-gray-100"
+              onclick="switchSection('policeStation')">
+              🚓 Police Station
+            </button>
+          </li>
+          <li>
+            <button 
+              class="w-full text-left flex items-center p-2 rounded-md hover:bg-gray-100"
+              onclick="switchSection('emergencyContact')">
+              📞 Emergency Contact
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6">
+    <!-- Sections -->
+    <div id="hospitalSection" class="hidden">
+      <h2 class="text-2xl font-bold mb-4">Hospital Management</h2>
+      <!-- Add Hospital Form -->
+      <form class="bg-white p-4 rounded-lg shadow-md mb-6">
+        <h3 class="text-lg font-semibold mb-2">Add Hospital</h3>
+        <div class="space-y-4">
+          <input type="text" placeholder="Hospital Name" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <input type="text" placeholder="Doctor Name" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <input type="text" placeholder="Address" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-md">Add Hospital</button>
+        </div>
+      </form>
+      <!-- Hospital List -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-2">Hospital List</h3>
+        <ul>
+          <li class="flex justify-between items-center mb-2">
+            <span>City Hospital</span>
+            <div>
+              <button class="px-2 py-1 bg-yellow-500 text-white rounded-md">Edit</button>
+              <button class="px-2 py-1 bg-red-500 text-white rounded-md">Delete</button>
+            </div>
+          </li>
+          <!-- Add more hospital records here -->
+        </ul>
+      </div>
+    </div>
+
+    <div id="fireServiceSection" class="hidden">
+      <h2 class="text-2xl font-bold mb-4">Fire Service Management</h2>
+      <!-- Add Fire Service Form -->
+      <form class="bg-white p-4 rounded-lg shadow-md mb-6">
+        <h3 class="text-lg font-semibold mb-2">Add Fire Service Station</h3>
+        <div class="space-y-4">
+          <input type="text" placeholder="Station Name" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <input type="text" placeholder="Contact Number" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-md">Add Station</button>
+        </div>
+      </form>
+      <!-- Fire Service List -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-2">Fire Service List</h3>
+        <ul>
+          <li class="flex justify-between items-center mb-2">
+            <span>Main Station - 123456789</span>
+            <div>
+              <button class="px-2 py-1 bg-yellow-500 text-white rounded-md">Edit</button>
+              <button class="px-2 py-1 bg-red-500 text-white rounded-md">Delete</button>
+            </div>
+          </li>
+          <!-- Add more fire service records here -->
+        </ul>
+      </div>
+    </div>
+
+    <div id="policeStationSection" class="hidden">
+      <h2 class="text-2xl font-bold mb-4">Police Station Management</h2>
+      <!-- Add Police Station Form -->
+      <form class="bg-white p-4 rounded-lg shadow-md mb-6">
+        <h3 class="text-lg font-semibold mb-2">Add Police Station</h3>
+        <div class="space-y-4">
+          <input type="text" placeholder="Station Name" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <input type="text" placeholder="Officer Name" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <input type="text" placeholder="Contact Number" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-md">Add Station</button>
+        </div>
+      </form>
+      <!-- Police Station List -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-2">Police Station List</h3>
+        <ul>
+          <li class="flex justify-between items-center mb-2">
+            <span>Central Station - Officer John - 987654321</span>
+            <div>
+              <button class="px-2 py-1 bg-yellow-500 text-white rounded-md">Edit</button>
+              <button class="px-2 py-1 bg-red-500 text-white rounded-md">Delete</button>
+            </div>
+          </li>
+          <!-- Add more police station records here -->
+        </ul>
+      </div>
+    </div>
+
+    <div id="emergencyContactSection" class="hidden">
+      <h2 class="text-2xl font-bold mb-4">Emergency Contacts</h2>
+      <!-- Add Emergency Contact Form -->
+      <form class="bg-white p-4 rounded-lg shadow-md mb-6">
+        <h3 class="text-lg font-semibold mb-2">Add Emergency Contact</h3>
+        <div class="space-y-4">
+          <input type="text" placeholder="Name" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <input type="text" placeholder="Contact Number" class="w-full border border-gray-300 rounded-md px-4 py-2">
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-md">Add Contact</button>
+        </div>
+      </form>
+      <!-- Emergency Contact List -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-2">Contact List</h3>
+        <ul>
+          <li class="flex justify-between items-center mb-2">
+            <span>John Doe - 555123456</span>
+            <div>
+              <button class="px-2 py-1 bg-yellow-500 text-white rounded-md">Edit</button>
+              <button class="px-2 py-1 bg-red-500 text-white rounded-md">Delete</button>
+            </div>
+          </li>
+          <!-- Add more emergency contact records here -->
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function switchSection(sectionId) {
+      // Hide all sections
+      const sections = ['hospitalSection', 'fireServiceSection', 'policeStationSection', 'emergencyContactSection'];
+      sections.forEach(section => {
+        document.getElementById(section).classList.add('hidden');
+      });
+
+      // Show selected section
+      document.getElementById(sectionId + 'Section').classList.remove('hidden');
+    }
+
+    // Default to Hospital Section
+    switchSection('hospital');
+  </script>
+</body>
+</html>

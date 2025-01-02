@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4">
+      <h1 class="text-2xl font-bold text-center">Hospital Dashboard</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-1">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-blue-500 text-white p-4">
+        <nav>
+          <ul>
+            <li class="mb-4"><a href="#doctor-section" class="hover:underline">Doctor Management</a></li>
+            <li><a href="#appointment-section" class="hover:underline">Appointments</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Content Area -->
+      <main class="flex-1 p-6 bg-white">
+        <!-- Doctor Management Section -->
+        <section id="doctor-section" class="mb-8">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Doctor Management</h2>
+            <!-- Add Doctor Button -->
+            <button
+              class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700"
+              onclick="openAddDoctorModal()">
+              Add Doctor
+            </button>
+          </div>
+
+          <!-- Doctor List -->
+          <div class="overflow-x-auto">
+            <table class="w-full table-auto border-collapse border border-gray-300">
+              <thead class="bg-gray-200">
+                <tr>
+                  <th class="border border-gray-300 p-2">Name</th>
+                  <th class="border border-gray-300 p-2">Specialty</th>
+                  <th class="border border-gray-300 p-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="doctor-list">
+                <!-- Sample doctor row -->
+                <tr>
+                  <td class="border border-gray-300 p-2">Dr. John Doe</td>
+                  <td class="border border-gray-300 p-2">Cardiologist</td>
+                  <td class="border border-gray-300 p-2 space-x-2">
+                    <button class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-700">Edit</button>
+                    <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointment-section">
+          <h2 class="text-xl font-bold mb-4">Appointments</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full table-auto border-collapse border border-gray-300">
+              <thead class="bg-gray-200">
+                <tr>
+                  <th class="border border-gray-300 p-2">Patient Name</th>
+                  <th class="border border-gray-300 p-2">Doctor</th>
+                  <th class="border border-gray-300 p-2">Date</th>
+                  <th class="border border-gray-300 p-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-gray-300 p-2">Jane Smith</td>
+                  <td class="border border-gray-300 p-2">Dr. John Doe</td>
+                  <td class="border border-gray-300 p-2">2024-12-02</td>
+                  <td class="border border-gray-300 p-2 space-x-2">
+                    <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-700">Approve</button>
+                    <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700">Cancel</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4">
+      <p>&copy; 2024 Hospital Management</p>
+    </footer>
+  </div>
+
+  <!-- Add Doctor Modal -->
+  <div id="add-doctor-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div class="bg-white p-6 rounded shadow-lg w-1/3">
+      <h3 class="text-lg font-bold mb-4">Add New Doctor</h3>
+      <form>
+        <div class="mb-4">
+          <label for="doctor-name" class="block text-sm font-medium text-gray-700">Doctor Name</label>
+          <input
+            type="text"
+            id="doctor-name"
+            class="block w-full mt-1 border border-gray-300 rounded-md p-2"
+            placeholder="Enter doctor name" />
+        </div>
+        <div class="mb-4">
+          <label for="specialty" class="block text-sm font-medium text-gray-700">Specialty</label>
+          <input
+            type="text"
+            id="specialty"
+            class="block w-full mt-1 border border-gray-300 rounded-md p-2"
+            placeholder="Enter specialty" />
+        </div>
+        <div class="flex justify-end">
+          <button
+            type="button"
+            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 mr-2"
+            onclick="closeAddDoctorModal()">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Functions to handle modal display
+    const openAddDoctorModal = () => {
+      document.getElementById('add-doctor-modal').classList.remove('hidden');
+    };
+
+    const closeAddDoctorModal = () => {
+      document.getElementById('add-doctor-modal').classList.add('hidden');
+    };
+  </script>
+</body>
+
+</html>
